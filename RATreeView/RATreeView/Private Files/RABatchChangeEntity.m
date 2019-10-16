@@ -12,7 +12,7 @@
 
 @implementation RABatchChangeEntity
 
-+ (instancetype)batchChangeEntityWithBlock:(void (^)())updates type:(RABatchChangeType)type ranking:(NSInteger)ranking
++ (instancetype)batchChangeEntityWithBlock:(void (^)(void))updates type:(RABatchChangeType)type ranking:(NSInteger)ranking
 {
     NSParameterAssert(updates);
     RABatchChangeEntity *entity = [RABatchChangeEntity new];

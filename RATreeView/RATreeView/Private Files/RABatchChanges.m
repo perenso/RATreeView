@@ -63,7 +63,7 @@
   }
 }
 
-- (void)insertItemWithBlock:(void (^)())update atIndex:(NSInteger)index
+- (void)insertItemWithBlock:(void (^)(void))update atIndex:(NSInteger)index
 {
   RABatchChangeEntity *entity = [RABatchChangeEntity batchChangeEntityWithBlock:update
                                                                            type:RABatchChangeTypeItemRowInsertion
@@ -71,7 +71,7 @@
   [self addBatchChangeEntity:entity];
 }
 
-- (void)expandItemWithBlock:(void (^)())update atIndex:(NSInteger)index
+- (void)expandItemWithBlock:(void (^)(void))update atIndex:(NSInteger)index
 {
   RABatchChangeEntity *entity= [RABatchChangeEntity batchChangeEntityWithBlock:update
                                                                           type:RABatchChangeTypeItemRowExpansion
@@ -79,7 +79,7 @@
   [self addBatchChangeEntity:entity];
 }
 
-- (void)deleteItemWithBlock:(void (^)())update lastIndex:(NSInteger)lastIndex
+- (void)deleteItemWithBlock:(void (^)(void))update lastIndex:(NSInteger)lastIndex
 {
   RABatchChangeEntity *entity = [RABatchChangeEntity batchChangeEntityWithBlock:update
                                                                            type:RABatchChangeTypeItemRowDeletion
@@ -87,7 +87,7 @@
   [self addBatchChangeEntity:entity];
 }
 
-- (void)collapseItemWithBlock:(void (^)())update lastIndex:(NSInteger)lastIndex
+- (void)collapseItemWithBlock:(void (^)(void))update lastIndex:(NSInteger)lastIndex
 {
   RABatchChangeEntity *entity = [RABatchChangeEntity batchChangeEntityWithBlock:update
                                                                            type:RABatchChangeTypeItemRowCollapse
@@ -95,7 +95,7 @@
   [self addBatchChangeEntity:entity];
 }
 
-- (void)moveItemWithDeletionBlock:(void (^)())deletionUpdate fromLastIndex:(NSInteger)lastIndex additionBlock:(void (^)())additionUpdate toIndex:(NSInteger)index
+- (void)moveItemWithDeletionBlock:(void (^)(void))deletionUpdate fromLastIndex:(NSInteger)lastIndex additionBlock:(void (^)(void))additionUpdate toIndex:(NSInteger)index
 {
   RABatchChangeEntity *firstEntity = [RABatchChangeEntity batchChangeEntityWithBlock:deletionUpdate
                                                                                 type:RABatchChangeTypeItemRowDeletion

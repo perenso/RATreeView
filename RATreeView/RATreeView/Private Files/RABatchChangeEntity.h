@@ -23,9 +23,9 @@ typedef NS_ENUM(NSInteger, RABatchChangeType) {
 
 @property (nonatomic) RABatchChangeType type;
 @property (nonatomic) NSInteger ranking;
-@property (nonatomic, copy) void(^updatesBlock)();
+@property (nonatomic, copy) void(^updatesBlock)(void);
 
-+ (instancetype)batchChangeEntityWithBlock:(void(^)())updates type:(RABatchChangeType)type ranking:(NSInteger)ranking;
++ (instancetype)batchChangeEntityWithBlock:(void(^)(void))updates type:(RABatchChangeType)type ranking:(NSInteger)ranking;
 
 @end
 
